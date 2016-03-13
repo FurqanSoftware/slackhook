@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
-	"os"
 )
 
 type Client struct {
@@ -28,11 +28,9 @@ func (c *Client) Send(msg Message) error {
 	if err != nil {
 		return err
 	}
-	body, err := ioutil.ReadAll(resp.Body)
+	_, err = io.Copy(ioutil.Discard, resp.Body)
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
-	os.Stdout.Write(body)
-	defer resp.Body.Close()
-	return nil
+	return resp.Body.Close()
 }
