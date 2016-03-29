@@ -3,7 +3,6 @@ package slackhook
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -25,7 +24,7 @@ func New(url string) *Client {
 func (c *Client) Send(msg Message) error {
 	b, err := json.Marshal(msg)
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
 	resp, err := http.Post(c.url, "application/json", bytes.NewBuffer(b))
 	if err != nil {
