@@ -9,16 +9,19 @@ import (
 	"net/http"
 )
 
+// Client represents a Slack client for a single incoming webhook URL.
 type Client struct {
 	url string
 }
 
+// New takes a Slack incoming webhook URL and returns a new Client.
 func New(url string) *Client {
 	return &Client{
 		url: url,
 	}
 }
 
+// Send takes a Slack message and dispatches it over the webhook URL.
 func (c *Client) Send(msg Message) error {
 	b, err := json.Marshal(msg)
 	if err != nil {

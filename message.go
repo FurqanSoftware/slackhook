@@ -1,5 +1,6 @@
 package slackhook
 
+// Message reepresents a single Slack message.
 type Message struct {
 	Text        string       `json:"text"`
 	Username    string       `json:"username"`
@@ -8,6 +9,7 @@ type Message struct {
 	Attachments []Attachment `json:"attachments"`
 }
 
+// Attachment represents a single attachment of a slack message.
 type Attachment struct {
 	Pretext string `json:"pretext"`
 
@@ -28,6 +30,7 @@ type Attachment struct {
 	ThumbURL string `json:"thumb_url"`
 }
 
+// Field represents a single field of a Slack message attachment.
 type Field struct {
 	Title string `json:"title"`
 	Value string `json:"value"`
