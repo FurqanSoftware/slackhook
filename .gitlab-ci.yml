@@ -1,0 +1,22 @@
+before_script:
+    - mkdir -p $GOPATH/src/git.furqan.io/go-slackhook
+    - ln -s $CI_PROJECT_DIR $GOPATH/src/git.furqan.io/go-slackhook/slackhook
+    - cd $GOPATH/src/git.furqan.io/go-slackhook/slackhook
+
+stages:
+    - build
+    - test
+
+build-go-1.6:
+    image: golang:1.6
+    stage: build
+    script:
+        - go get -v ./...
+        - go build -v ./...
+
+test-go-1.6:
+    image: golang:1.6
+    stage: test
+    script:
+        - go get -v ./...
+        - go test -v ./...
