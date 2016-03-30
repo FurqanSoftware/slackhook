@@ -12,7 +12,7 @@ func TestNew(t *testing.T) {
 	url := "http://example.com/fake-slack-webhook"
 	c := New(url)
 	if c.url != url {
-		t.Fatalf("#1: Expected URL: %s, got %s", url, c.url)
+		t.Fatalf("expected c.url == %q, got %q", url, c.url)
 	}
 }
 
@@ -89,7 +89,7 @@ func TestSend(t *testing.T) {
 			t.Fatal(err)
 		}
 		if body != c.body {
-			t.Fatalf("#%d: Expected body == %v, got %v", i+1, c.body, body)
+			t.Fatalf("#%d: expected body == %q, got %q", i+1, c.body, body)
 		}
 	}
 }
