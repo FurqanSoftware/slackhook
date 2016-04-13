@@ -1,3 +1,5 @@
+// Package slackhook provides a client implementation for Slack's
+// incoming webhooks.
 package slackhook
 
 import (
