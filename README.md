@@ -1,5 +1,7 @@
 # Slackhook
 
+[![Build Status](https://drone.io/github.com/go-slackhook/slackhook/status.png)](https://drone.io/github.com/go-slackhook/slackhook/latest)
+
 Slackhook provides a client implementation for Slack's incoming webhooks.
 
 ## Installation
